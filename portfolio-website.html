@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohit Kanwaria | Software Developer</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --dark-color: #000000;
+            --light-color: #e5e7eb;
+            --success-color: #10b981;
+            --text-color: #d1d5db;
+            --white: #ffffff;
+            --card-bg: #111827;
+            --section-bg: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--dark-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--light-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010138.jpg?size=626&ext=jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light-color);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--section-bg);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 3;
+        }
+
+        .about-img {
+            flex: 2;
+            text-align: center;
+        }
+
+        .about-img img {
+            width: 70%;
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h3 {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .experience-company {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .experience-date {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .experience-description ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--section-bg);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .education-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-title {
+            margin-bottom: 0.5rem;
+        }
+
+        .education-institution {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--section-bg);
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            margin-right: 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-text {
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #374151;
+            background-color: #1f2937;
+            color: var(--light-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-img {
+                margin-bottom: 2rem;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 5rem;
+                left: 0;
+                background-color: rgba(17, 24, 39, 0.95);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-img img {
+                width: 80%;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Mohit Kanwaria</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">Mohit Kanwaria</h1>
+                <h2 class="hero-subtitle">Full Stack Developer with a passion for building scalable applications and
+                    delivering seamless user experiences across both frontend and backend.</h2>
+                <div>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                    <a href="#projects" class="btn"
+                        style="margin-left: 10px; background-color: transparent; color: var(--secondary-color); border: 2px solid var(--secondary-color);">View
+                        Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="../Portfolio/Mohit_Profile_Image.jpeg" alt="Mohit Kanwaria">
+                </div>
+                <div class="about-text">
+                    <h3>Full Stack Developer</h3>
+                    <p>Smart-working and results-driven Full Stack Developer with 3+ years of experience, dedicated to
+                        building scalable, high-performance web applications and delivering seamless user experiences.
+                        Passionate about problem-solving, clean code, and staying current with emerging technologies to
+                        drive innovation and efficiency.</p><br>
+                    <p>I specialize in developing responsive and intuitive user interfaces using React.js, along with
+                        building robust backend systems using Node.js, Express, and PostgreSQL. With a strong foundation
+                        across the full development stack, I’m capable of delivering end-to-end solutions—from designing
+                        APIs to deploying production-ready applications.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mohit-kanwaria-759b54242/" target="_blank"
+                            title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/mohitkanwaria" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:mohit.kanwaria.5@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">React.js</div>
+                        <div class="skill-item">Redux</div>
+                        <div class="skill-item">CSS</div>
+                        <div class="skill-item">Tailwind CSS</div>
+                        <div class="skill-item">Material UI</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">Express</div>
+                        <div class="skill-item">MongoDB</div>
+                        <div class="skill-item">PostgreSQL</div>
+                        <div class="skill-item">RESTful APIs</div>
+                        <div class="skill-item">Postman</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Other</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">Data Structures</div>
+                        <div class="skill-item">Algorithms</div>
+                        <div class="skill-item">Git</div>
+                        <div class="skill-item">Problem Solving</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+
+                <!-- Project Card -->
+                <div class="project-card"
+                    style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+
+                    <!-- Image Section -->
+                    <div class="project-img" style="height: 250px;">
+                        <img src="../Portfolio/Project.jpg" alt="Portfolio Blog"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="project-info"
+                        style="padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+
+                        <div>
+                            <h3 class="project-title">Portfolio Blog Website</h3>
+                            <p class="project-description">
+                                Developed a full-stack portfolio blog application with complete ownership of frontend,
+                                backend, and database. Created user-facing and admin interfaces using React, designed
+                                and
+                                implemented backend services with Node.js & Express, and integrated PostgreSQL for
+                                secure
+                                blog
+                                and user data storage. Enabled admin authentication, blog creation/editing, and dynamic
+                                routing for published content.
+                            </p>
+                        </div>
+
+                        <a href="https://github.com/mohitkanwaria/my-portfolio-frontend" target="_blank" class="btn"
+                            style="align-self: flex-start; margin-top: 10px; background-color: #007bff; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">
+                            View Project
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Repeat for other projects -->
+                <div class="project-card"
+                    style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+
+                    <!-- Image Section -->
+                    <div class="project-img" style="height: 250px;">
+                        <img src="../Portfolio/Project.jpg" alt="Movie Finder App"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <!-- Project Info Section -->
+                    <div class="project-info"
+                        style="padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+
+                        <div>
+                            <h3 class="project-title">Movie Finder App</h3>
+                            <p class="project-description">
+                                Created a full-stack Movie Finder application featuring user.
+                                Developed the frontend using React, styled with modern UI libraries. Built robust
+                                backend
+                                services with Node.js and Express, and integrated a PostgreSQL database to manage
+                                movies,
+                                user actions. Frontend panel allows adding movies,
+                                while users can browse and search movie listings dynamically.
+                            </p>
+                        </div>
+
+                        <!-- Optional GitHub or Live Link -->
+                        <a href="https://github.com/mohitkanwaria/my-moviefinder-frontend/tree/master" target="_blank" class="btn"
+                            style="align-self: flex-start; margin-top: 10px; background-color: #007bff; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">
+                            View Project
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Add more cards as needed -->
+                <div class="project-card"
+                    style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;">
+
+                    <!-- Image Section -->
+                    <div class="project-img" style="height: 250px;">
+                        <img src="../Portfolio/Project.jpg" alt="Netflix Clone"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+
+                    <!-- Project Info Section -->
+                    <div class="project-info"
+                        style="padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+
+                        <div>
+                            <h3 class="project-title">Netflix Clone</h3>
+                            <p class="project-description">
+                                Developed a full-stack Netflix Clone with complete frontend, backend, and PostgreSQL
+                                database integration.
+                                Built user-facing and admin panels using React, styled entirely with custom CSS for a
+                                consistent and responsive layout.
+                                The admin panel enables content management, while users can browse and see categorized
+                                movies and series.
+                            </p>
+
+
+                        </div>
+
+                        <!-- Optional: GitHub or Live Demo Link -->
+                        <a href="https://github.com/mohitkanwaria" target="_blank" class="btn"
+                            style="align-self: flex-start; margin-top: 10px; background-color: #007bff; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">
+                            View Project
+                        </a>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-card">
+                <div class="experience-title">
+                    <div class="experience-company">Protean eGov Technologies</div>
+                    <div class="experience-date">2023 - Present</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Designed and built reusable, modular React components for the frontend and maintained
+                            scalable backend APIs using Node.js and Express, improving overall code maintainability and
+                            development.
+                        </li>
+                        <li>Integrated RESTful APIs for real-time data fetching and dynamic content rendering, ensuring
+                            seamless communication between frontend and backend systems.
+                        </li>
+                        <li>Debugged and resolved both frontend and backend issues, resulting in a 25% reduction in bug
+                            reports and improved application stability.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-card">
+                <div class="experience-title">
+                    <div class="experience-company">FunctionUp</div>
+                    <div class="experience-date">Oct 2021 - Jan 2023</div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Up-skilled in backend development with Node.js, Express, and MongoDB, optimizing APIs and
+                            reducing response times by 25%.</li>
+                        <li>Enhanced database query efficiency by 30%, leading to a 10% boost in overall system
+                            performance.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3 class="education-title">Master of Business Administration - MBA</h3>
+                <p class="education-institution">SVKM's Narsee Monjee Institute of Management Studies (NMIMS)</p>
+                <div class="contact-text">Master of Business Administration in Operations & Data Sciences</div>
+                <p class="education-date">2025 - 2027</p>
+            </div><br>
+            <div class="education-card">
+                <h3 class="education-title">Bachelor Degree of Technology</h3>
+                <p class="education-institution">J.C Bose University of Science & Technology, YMCA, Faridabad</p>
+                <div class="contact-text">Master of Business Administration in Operations & Data Sciences</div>
+                <p class="education-date">2017 - 2021</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">Pune, India</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">+91 9466890619</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">mohit.kanwaria.5@gmail.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="contact-text">
+                            <a href="https://www.linkedin.com/in/mohit-kanwaria-759b54242/" target="_blank">LinkedIn
+                                Profile</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-text">
+                            <a href="https://github.com/mohitkanwaria" target="_blank">GitHub
+                                </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Mohit Kanwaria. Full Stack Developer based in India.</p>
+                <p>All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const formData = new FormData(this);
+            const formValues = {};
+
+            for (let [key, value] of formData.entries()) {
+                formValues[key] = value;
+            }
+
+            // Here you would typically send the form data to a server
+            // For now, we'll just show a success message
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.experience-card, .project-card, .skill-category, .education-card');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.classList.add('fade-in');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+
+</html>
