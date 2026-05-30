@@ -945,19 +945,31 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form action="https://formsubmit.co/mohit.kanwaria.5@gmail.com" method="POST">
+
+                        <!-- Disable captcha -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <!-- Redirect after successful submit -->
+                        <input type="hidden" name="_next" value="https://html-frontend-portfolio.vercel.app/">
+
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
+
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
+
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject">
                         </div>
+
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message"
+                                required></textarea>
                         </div>
+
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
